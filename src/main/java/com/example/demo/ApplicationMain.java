@@ -6,12 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
-public class LogStoreMain {
+public class ApplicationMain {
 
 
     public static void main(String[] args) throws Exception {
 
-        ConfigurableApplicationContext context = SpringApplication.run(LogStoreMain.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(ApplicationMain.class, args);
         EventHandler eventHandler = context.getBean(EventHandler.class);
         Thread t1 = new Thread(()->eventHandler.readEventsFromFile());
         t1.start();
